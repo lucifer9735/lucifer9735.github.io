@@ -183,7 +183,7 @@ abbrlink:
 
 # Gulp压缩
 
-[参考主题文档](https://butterfly.js.org/posts/4073eda/#Gulp%E5%A3%93%E7%B8%AE)。
+[参考Butterfly主题的文档](https://butterfly.js.org/posts/4073eda/#Gulp%E5%A3%93%E7%B8%AE)。
 
 # SEO
 
