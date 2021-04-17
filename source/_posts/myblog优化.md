@@ -35,7 +35,7 @@ git push -u origin master
 
 本地修改`myblog/_config.yml`文件中的部署分支：
 
-```vim
+```yml
 deploy:
   type: git
   repo: git@github.com:lucifer9735/lucifer9735.github.io.git
@@ -66,15 +66,82 @@ git push
 
 之前的博客使用`travis-CI`更新，而今Github推出了`Actions`功能，尝试一下。
 
+## 生成公私钥
+
 ```shell
 ssh-keygen -t ed25519 -f hexoci -C "lucifer9735@gmail.com" -N ""
 ```
 
+仅供该仓库使用，配置成功后甚至在本地删除。
 
+## 上传公私钥
 
-![image-20210417143131178](/Users/foo/Library/Application Support/typora-user-images/image-20210417143131178.png)
+公钥：
 
+![公钥上传](https://i.loli.net/2021/04/17/r4PQC8XfAFj7ESN.png)
 
+私钥：
+
+![私钥上传](https://i.loli.net/2021/04/17/tR6OEcIqwX4HSCh.png)
+
+## 创建Actions配置文件
+
+`myblog/.github/workflows/HexoCI.yml`:
+
+```yml
+name: HexoCI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-npm-cache
+        restore-keys: |
+          ${{ runner.OS }}-npm-cache
+
+    - name: Setup Hexo
+      env:
+        HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXOCI }}
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git config --global user.name "lucifer9735"
+        git config --global user.email "lucifer9735@gmail.com"
+        npm install hexo-cli -g
+        npm install
+
+    - name: Hexo deploy
+      run: |
+        hexo clean
+        hexo generate
+        hexo deploy
+```
+
+## What's more
+
+```vim
+alias hh="git add . && git commit -m 'update' && git push"
+```
+
+```shell
+source .zshrc
+hh
+```
 
 # 永久链接
 
