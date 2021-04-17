@@ -1,0 +1,15 @@
+- class_name: 非正常人类致富研究中心
+  class_desc:
+  link_list:
+    - name: Tr0y's Blog
+      link: https://www.tr0y.wang/
+      avatar: https://www.tr0y.wang/img/avatar.jpg
+      descr: 王大佬
+    - name: Xieldy
+      link: http://blog.xieldy.cn/
+      avatar: http://blog.xieldy.cn/img/avatar.png
+      descr: 谢大佬
+    - name: barriery's World
+      link: https://barriery.cn/
+      avatar: https://barriery.cn/img/avatar.jpg
+      descr: 叶大佬
