@@ -68,6 +68,10 @@ git push
 
 
 
+![image-20210417143131178](/Users/foo/Library/Application Support/typora-user-images/image-20210417143131178.png)
+
+
+
 # 永久链接
 
 使用插件[hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink)生成永久链接。
