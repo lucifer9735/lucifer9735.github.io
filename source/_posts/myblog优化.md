@@ -66,6 +66,10 @@ git push
 
 之前的博客使用`travis-CI`更新，而今Github推出了`Actions`功能，尝试一下。
 
+```shell
+ssh-keygen -t ed25519 -f hexoci -C "lucifer9735@gmail.com" -N ""
+```
+
 
 
 ![image-20210417143131178](/Users/foo/Library/Application Support/typora-user-images/image-20210417143131178.png)

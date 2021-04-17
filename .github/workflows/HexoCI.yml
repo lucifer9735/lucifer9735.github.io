@@ -21,25 +21,17 @@ jobs:
         restore-keys: |
           ${{ runner.OS }}-npm-cache
     
+    - env:
+        HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXOCI }}
     - run: |
-        npm install hexo-cli -g
-        npm install
-    
-    - name: Setup Deploy Private Key
-      env:
-        HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY }}
-      run: |
         mkdir -p ~/.ssh/
-        echo "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/foogit_ed25519 
-        chmod 600 ~/.ssh/foogit_ed25519
+        echo "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/hexoci 
+        chmod 600 ~/.ssh/hexoci
         ssh-keyscan github.com >> ~/.ssh/known_hosts
         git config --global user.name 'lucifer9735' 
         git config --global user.email 'lucifer9735@gmail.com'
-
-        #    - name: Deploy Hexo 
-        #      run: |
-        #        hexo clean
-        #        hexo generate 
-        #        hexo deploy
-    - run:
-        ssh -T git@github.com
+        npm install hexo-cli -g
+        npm install
+        hexo clean
+        hexo generate 
+        hexo deploy
