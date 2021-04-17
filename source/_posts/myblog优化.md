@@ -139,7 +139,7 @@ alias hh="git add . && git commit -m 'update' && git push"
 ```
 
 ```shell
-source .zshrc
+source ~/.zshrc
 hh
 ```
 
@@ -180,6 +180,10 @@ abbrlink:
   auto_date: false #enable auto date, it can auto fill the date by time today
   force: false #enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink.
 ```
+
+# Gulp压缩
+
+[参考主题文档](https://butterfly.js.org/posts/4073eda/#Gulp%E5%A3%93%E7%B8%AE)。
 
 # SEO
 
