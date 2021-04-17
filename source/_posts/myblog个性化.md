@@ -1,8 +1,10 @@
 ---
 title: myblog个性化
-date: 2021-04-14 19:57:27
 tags: Hexo
 categories: 指北
+description: Butterfly很好看 但配置之前一般
+abbrlink: 9f1c407f
+date: 2021-04-14 19:57:27
 ---
 
 # 配置文件

@@ -1,10 +1,11 @@
 ---
 title: POI_PI
+tags: POI
+categories: 摘录
+description: 'Mr.Frinch: Any of you tell me what it means?'
+cover: 'https://i.loli.net/2018/04/15/5ad3142a3b47d.jpg'
+abbrlink: 53a8bc96
 date: 2021-04-13 21:07:40
-tags:
-categories:
-description: "Mr.Frinch: Any of you tell me what it means?"
-cover: https://i.loli.net/2018/04/15/5ad3142a3b47d.jpg
 ---
 
 Let me show you...

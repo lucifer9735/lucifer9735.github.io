@@ -1,13 +1,15 @@
 ---
 title: GitPages+Hexo+Butterfly
-date: 2021-04-14 10:42:09
 tags: Hexo
 categories: 指北
+description: 搭建个人博客 用于积累知识
+abbrlink: 8b8f742
+date: 2021-04-14 10:42:09
 ---
 
 # Why
 
-通过博客记录并巩固知识
+通过博客记录并巩固所学知识
 
 # What
 
