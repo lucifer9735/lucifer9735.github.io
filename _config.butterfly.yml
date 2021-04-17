@@ -80,11 +80,11 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon.png
+favicon: https://i.loli.net/2021/04/17/vkEUlp7nhmsxFeT.jpg 
 
 # Avatar (頭像)
 avatar:
-  img: /img/avatar.png 
+  img: https://i.loli.net/2021/04/17/QXcxgdG5REoKv2y.jpg 
   effect: false
 
 # Disable all banner image
