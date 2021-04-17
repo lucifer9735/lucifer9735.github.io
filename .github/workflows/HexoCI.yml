@@ -25,8 +25,8 @@ jobs:
         HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY }}
       run: |
         mkdir -p ~/.ssh/
-        echo "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/id_rsa 
-        chmod 600 ~/.ssh/id_rsa
+        echo "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/foogit_ed25519 
+        chmod 600 ~/.ssh/foogit_ed25519
         ssh-keyscan github.com >> ~/.ssh/known_hosts
         
     - name: Setup Git Infomation
