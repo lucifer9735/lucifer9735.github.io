@@ -31,7 +31,7 @@ git push -u origin master
 
 通过github页面在当前仓库创建`ghpages`分支：
 
-<img src="https://i.loli.net/2021/04/17/5dwzk3AVJHpTlhK.png" alt="创建ghpages分支" style="zoom:50%;" />
+<img src="https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/5dwzk3AVJHpTlhK-20210418171446369.png" alt="创建ghpages分支" style="zoom:50%;" />
 
 本地修改`myblog/_config.yml`文件中的部署分支：
 
@@ -46,7 +46,7 @@ deploy:
 
 ## 修改GitHub Pages源分支
 
-![修改到ghpages分支](https://i.loli.net/2021/04/17/SmlgOn7A2zYiQP8.png)
+![修改到ghpages分支](https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/SmlgOn7A2zYiQP8-20210418171453041.png)
 
 到这儿就完成了本地博客源文件的备份（不包含Hexo环境）。
 
@@ -78,11 +78,11 @@ ssh-keygen -t ed25519 -f hexoci -C "lucifer9735@gmail.com" -N ""
 
 公钥：
 
-![公钥上传](https://i.loli.net/2021/04/17/r4PQC8XfAFj7ESN.png)
+![公钥上传](https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/r4PQC8XfAFj7ESN-20210418171501888.png)
 
 私钥：
 
-![私钥上传](https://i.loli.net/2021/04/17/tR6OEcIqwX4HSCh.png)
+![私钥上传](https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/tR6OEcIqwX4HSCh-20210418171507272.png)
 
 ## 创建Actions配置文件
 
