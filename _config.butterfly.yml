@@ -129,6 +129,8 @@ cover:
   default_cover:
     - https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/miss.jpg
     - https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/qiandao.jpg
+    - https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/yunhe5.jpg
+    - https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/nicebrain.jpg
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
