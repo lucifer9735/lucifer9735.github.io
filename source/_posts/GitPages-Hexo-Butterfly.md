@@ -1,7 +1,7 @@
 ---
 title: GitPages+Hexo+Butterfly
 tags: Hexo
-categories: 指北
+categories: [指北,myblog]
 description: 搭建个人博客 用于积累知识
 abbrlink: 8b8f742
 date: 2021-04-14 10:42:09

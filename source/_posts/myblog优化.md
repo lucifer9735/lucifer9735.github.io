@@ -1,7 +1,7 @@
 ---
 title: myblog优化
 tags: Hexo
-categories: 指北
+categories: [指北,myblog]
 description: 优化记录 仅供参考 避免踩坑 随缘更新
 abbrlink: 61bd27c9
 date: 2021-04-17 10:22:34
