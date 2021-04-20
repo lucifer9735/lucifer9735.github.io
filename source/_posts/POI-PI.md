@@ -3,7 +3,7 @@ title: POI_PI
 tags: POI
 categories: [摘录,POI]
 description: 'Mr.Frinch: Any of you tell me what it means?'
-cover: 'https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/5ad3142a3b47d-20210418170951262.jpg'
+cover: 'https://img.foopi.top/cover/thanksPOI.webp'
 abbrlink: 53a8bc96
 date: 2021-04-13 21:07:40
 ---
