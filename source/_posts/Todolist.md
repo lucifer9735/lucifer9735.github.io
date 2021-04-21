@@ -36,6 +36,8 @@ sticky: 1
 
 ## 网络与协议安全
 
+计算机与网络安全综合实验
+
 ## 信息与内容安全
 
 线上课程自学
@@ -53,8 +55,11 @@ sticky: 1
 实验
 
 ## 无线通信网络安全   
-## 人工智能           
+## 人工智能
+
 ## 密码学进展
+
+漏洞分析报告
 
 学术论文阅读
 
@@ -64,6 +69,10 @@ python实验
 
 ndss-2015
 
+ABY SPDZ 混合安全计算工具 分析其中三个函数 写报告
+
 # 课外
 
-截图压缩上传
+## 截图压缩上传
+
+- [使用backblaze-B2搭建自己的图床](https://maojun.xyz/build-your-own-image-server-with-backblaze-b2.html)

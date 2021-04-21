@@ -173,7 +173,7 @@ menu:
 
 在[Cloudflare](https://dash.cloudflare.com/)的`DNS`服务中用`CNAME`类型解析域名，如图：
 
-![CNAME域名解析](https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/CNAME%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.png)
+![CNAME域名解析](https://img.foopi.top/postpic/CNAME%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.webp)
 
 ## 添加CNAME文件
 
@@ -197,11 +197,11 @@ skip_render: README.md
 
 你的浏览器可能会提示你此时连接不安全，如图所示：
 
-<img src="https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/y1iB3sjNmu9EI5p-20210418171237100.png" alt="http访问不安全" style="zoom: 67%;" />
+<img src="https://img.foopi.top/postpic/http访问不安全.webp" alt="http访问不安全" style="zoom: 67%;" />
 
 我们可以直接使用`Cloudflare`提供的`SSL/TLS加密模式`功能：
 
-<img src="https://foopic-1251833308.cos.ap-shanghai.myqcloud.com/KhAw95BxvDGk2dZ.png" alt="SSL/TLS加密模式" style="zoom: 50%;" />
+<img src="https://img.foopi.top/postpic/SSL:TLS加密模式.webp" alt="SSL/TLS加密模式" style="zoom: 50%;" />
 
 # Typora+Picgo
 
@@ -214,6 +214,8 @@ skip_render: README.md
 目前默认图床[sm.ms](https://sm.ms/)，有能力尽量建私有图床。
 
 2021-4-18 改用腾讯云对象存储COS
+
+2021-4-21 [B2+CF](https://blog.meow.page/archives/free-personal-image-hosting-with-backblaze-b2-and-cloudflare-workers/)（请留意参考文档标签栏，有必要避免误会）
 
 # What's more
 

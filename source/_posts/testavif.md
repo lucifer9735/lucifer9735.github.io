@@ -5,7 +5,7 @@ abbrlink: d65a8a26
 date: 2021-04-20 14:50:40
 tags: AVIF
 categories:
-description: 似乎目前只有chrome浏览器能看到
+description: 目前似乎只有chrome浏览器能看到
 katex:
 ---
 
