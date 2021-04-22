@@ -616,7 +616,183 @@ UPDATE <表名> SET <列名>=<表达式> [WHERE <条件>];
 
 ### 修改某个元组的值
 
+```sql
+MariaDB [S_T]> select * from student;
++-----------+--------+------+------+-------+
+| Sno       | Sname  | Ssex | Sage | Sdept |
++-----------+--------+------+------+-------+
+| 201215121 | 李勇   | 男   |   20 | CS    |
+| 201215122 | 刘晨   | 女   |   19 | CS    |
+| 201215123 | 王敏   | 女   |   20 | MA    |
+| 201215125 | 张立   | 男   |   19 | IS    |
++-----------+--------+------+------+-------+
+4 rows in set (0.000 sec)
 
+MariaDB [S_T]> update student set sage=18 where sno='201215123';
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [S_T]> select * from student;
++-----------+--------+------+------+-------+
+| Sno       | Sname  | Ssex | Sage | Sdept |
++-----------+--------+------+------+-------+
+| 201215121 | 李勇   | 男   |   20 | CS    |
+| 201215122 | 刘晨   | 女   |   19 | CS    |
+| 201215123 | 王敏   | 女   |   18 | MA    |
+| 201215125 | 张立   | 男   |   19 | IS    |
++-----------+--------+------+------+-------+
+4 rows in set (0.000 sec)
+```
+
+更新之前的`Course`表:
+
+```sql
+MariaDB [S_T]> select * from course;
++-----+--------------+------+---------+
+| Cno | Cname        | Cpno | Ccredit |
++-----+--------------+------+---------+
+| 1   | 数据库       | NULL |       4 |
+| 2   | 数学         | NULL |       2 |
+| 3   | 信息系统     | NULL |       4 |
+| 4   | 操作系统     | NULL |       3 |
+| 5   | 数据结构     | NULL |       4 |
+| 6   | 数据处理     | NULL |       2 |
+| 7   | PASCAL语言   | NULL |       4 |
++-----+--------------+------+---------+
+7 rows in set (0.000 sec)
+
+MariaDB [S_T]> update course set cpno='5' where cno='1';
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [S_T]> update course set cpno='1' where cno='3';
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [S_T]> update course set cpno='6' where cno='4';
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [S_T]> update course set cpno='7' where cno='5';
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [S_T]> update course set cpno='6' where cno='7';
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [S_T]> select * from course;
++-----+--------------+------+---------+
+| Cno | Cname        | Cpno | Ccredit |
++-----+--------------+------+---------+
+| 1   | 数据库       | 5    |       4 |
+| 2   | 数学         | NULL |       2 |
+| 3   | 信息系统     | 1    |       4 |
+| 4   | 操作系统     | 6    |       3 |
+| 5   | 数据结构     | 7    |       4 |
+| 6   | 数据处理     | NULL |       2 |
+| 7   | PASCAL语言   | 6    |       4 |
++-----+--------------+------+---------+
+7 rows in set (0.000 sec)
+```
+
+对学生选课`SC`表插入数据:
+
+```sql
+MariaDB [S_T]> select * from sc;
+Empty set (0.000 sec)
+
+MariaDB [S_T]> desc sc;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Sno   | char(9)     | NO   | PRI | NULL    |       |
+| Cno   | char(4)     | NO   | PRI | NULL    |       |
+| Grade | smallint(6) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.002 sec)
+
+MariaDB [S_T]> insert into sc values ('201215121','1',92);
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [S_T]> insert into sc values ('201215121','2',85);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [S_T]> insert into sc values ('201215121','3',88);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [S_T]> insert into sc values ('201215122','2',90);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [S_T]> insert into sc values ('201215122','3',80);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [S_T]> select * from sc;
++-----------+-----+-------+
+| Sno       | Cno | Grade |
++-----------+-----+-------+
+| 201215121 | 1   |    92 |
+| 201215121 | 2   |    85 |
+| 201215121 | 3   |    88 |
+| 201215122 | 2   |    90 |
+| 201215122 | 3   |    80 |
++-----------+-----+-------+
+5 rows in set (0.000 sec)
+```
+
+### 修改多个元组的值
+
+```sql
+MariaDB [S_T]> select * from student;
++-----------+--------+------+------+-------+
+| Sno       | Sname  | Ssex | Sage | Sdept |
++-----------+--------+------+------+-------+
+| 201215121 | 李勇   | 男   |   20 | CS    |
+| 201215122 | 刘晨   | 女   |   19 | CS    |
+| 201215123 | 王敏   | 女   |   18 | MA    |
+| 201215125 | 张立   | 男   |   19 | IS    |
++-----------+--------+------+------+-------+
+4 rows in set (0.000 sec)
+
+MariaDB [S_T]> update student set sage=sage+1;
+Query OK, 4 rows affected (0.001 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+MariaDB [S_T]> select * from student;
++-----------+--------+------+------+-------+
+| Sno       | Sname  | Ssex | Sage | Sdept |
++-----------+--------+------+------+-------+
+| 201215121 | 李勇   | 男   |   21 | CS    |
+| 201215122 | 刘晨   | 女   |   20 | CS    |
+| 201215123 | 王敏   | 女   |   19 | MA    |
+| 201215125 | 张立   | 男   |   20 | IS    |
++-----------+--------+------+------+-------+
+4 rows in set (0.000 sec)
+```
+
+### 带子查询的修改语句
+
+## 删除数据
+
+```sql
+DELETE FROM <表名> [WHERE <条件>];
+```
+
+### 删除某个元组的值
+
+```sql
+delete from student where sno='201215128';
+```
+
+### 删除多个元组的值
+
+```sql
+delete from sc;
+```
+
+注意：仅使`SC`成为空表，表依旧在。
+
+### 带子查询的删除语句
 
 # 数据查询
 
@@ -635,8 +811,104 @@ FROM <表名或视图名> [,<表名或视图名>]|(<SELECT语句>) [AS] <别名>
 #### 查询指定列
 
 ```sql
+MariaDB [S_T]> select sno,sname from student;
++-----------+--------+
+| sno       | sname  |
++-----------+--------+
+| 201215122 | 刘晨   |
+| 201215125 | 张立   |
+| 201215121 | 李勇   |
+| 201215123 | 王敏   |
++-----------+--------+
+4 rows in set (0.000 sec)
 
+MariaDB [S_T]> select sname,sno,sdept from student;
++--------+-----------+-------+
+| sname  | sno       | sdept |
++--------+-----------+-------+
+| 李勇   | 201215121 | CS    |
+| 刘晨   | 201215122 | CS    |
+| 王敏   | 201215123 | MA    |
+| 张立   | 201215125 | IS    |
++--------+-----------+-------+
+4 rows in set (0.000 sec)
 ```
 
+#### 查询全部列
 
+```sql
+select * from student;
+```
+
+#### 查询经过计算的值
+
+查询全体学生的姓名及其出生年份：
+
+```sql
+MariaDB [S_T]> select sname,2014-sage from student;
++--------+-----------+
+| sname  | 2014-sage |
++--------+-----------+
+| 李勇   |      1993 |
+| 刘晨   |      1994 |
+| 王敏   |      1995 |
+| 张立   |      1994 |
++--------+-----------+
+4 rows in set (0.000 sec)
+```
+
+查询全体学生的姓名、出生年份和所在院系，要求用小谢字母表示院系名：
+
+```sql
+MariaDB [S_T]> select sname,'Year of Birth:',2014-sage,lower(sdept) from student;
++--------+----------------+-----------+--------------+
+| sname  | Year of Birth: | 2014-sage | lower(sdept) |
++--------+----------------+-----------+--------------+
+| 李勇   | Year of Birth: |      1993 | cs           |
+| 刘晨   | Year of Birth: |      1994 | cs           |
+| 王敏   | Year of Birth: |      1995 | ma           |
+| 张立   | Year of Birth: |      1994 | is           |
++--------+----------------+-----------+--------------+
+4 rows in set (0.000 sec)
+
+MariaDB [S_T]> select sname NAME,2014-sage BIRTH,lower(sdept) department from student;
++--------+-------+------------+
+| NAME   | BIRTH | department |
++--------+-------+------------+
+| 李勇   |  1993 | cs         |
+| 刘晨   |  1994 | cs         |
+| 王敏   |  1995 | ma         |
+| 张立   |  1994 | is         |
++--------+-------+------------+
+4 rows in set (0.000 sec)
+```
+
+### 选择表中的若元组
+
+#### 消除取值重复的行 select distinct
+
+```sql
+MariaDB [S_T]> select sno from sc;
++-----------+
+| sno       |
++-----------+
+| 201215121 |
+| 201215121 |
+| 201215121 |
+| 201215122 |
+| 201215122 |
++-----------+
+5 rows in set (0.000 sec)
+
+MariaDB [S_T]> select distinct sno from sc;
++-----------+
+| sno       |
++-----------+
+| 201215121 |
+| 201215122 |
++-----------+
+2 rows in set (0.000 sec)
+```
+
+#### 查询满足条件的元组
 
