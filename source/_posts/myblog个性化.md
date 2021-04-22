@@ -1,6 +1,6 @@
 ---
 title: myblog个性化
-tags: Hexo
+tags: [myblog,Hexo]
 categories: [指北,myblog]
 description: Butterfly很好看 但配置之前一般
 abbrlink: 9f1c407f

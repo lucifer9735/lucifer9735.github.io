@@ -73,6 +73,15 @@ ABY SPDZ 混合安全计算工具 分析其中三个函数 写报告
 
 # 课外
 
-## 截图压缩上传
+## myblog
 
-- [使用backblaze-B2搭建自己的图床](https://maojun.xyz/build-your-own-image-server-with-backblaze-b2.html)
+- KaTex支持
+- 302转发404
+- [截图压缩上传](https://maojun.xyz/build-your-own-image-server-with-backblaze-b2.html)
+
+## 开源镜像维护
+
+## 辉光钟
+
+[来做 Divergence Meter](https://debupt.github.io/2018/02/02/%E6%9D%A5%E5%81%9A-Divergence-Meter-%E8%BE%89%E5%85%89%E7%AE%A1%E6%97%B6%E9%92%9F/)
+
