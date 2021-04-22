@@ -1,5 +1,5 @@
 ---
-title: 在Mac安装使用mysql(mariadb)
+title: 在Mac安装mysql(mariadb)
 tags: [mysql,mariadb]
 categories:
   - 想要毕业
