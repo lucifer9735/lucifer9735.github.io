@@ -12,23 +12,25 @@ sticky: 1
 
 # 课内
 
-[2021春季学期课程](../cc41c62f/)
+[2021春季学期课程](https://foopi.top/posts/cc41c62f/)
 
 ## 微机原理与系统设计
 
-实验
+微机系统综合实验
 
 ## 数据库原理
 
-上机测试 4-23
+~~[上机测试](https://foopi.top/posts/122cff9f/) 4-23~~ 优秀
+
+实现相关程序 5-28
 
 ## 操作系统
 
-自学第9次课程 4-28
+操作系统综合实验
 
 ## 信号与系统
 
-准备期中考试 4-27
+期中考试 4-27
 
 第五次作业 4-25
 
@@ -40,7 +42,12 @@ sticky: 1
 
 ## 信息与内容安全
 
-线上课程自学
+[机器学习 李宏毅](https://www.bilibili.com/video/BV1Wv411h7kN) RNN
+
+[CSIG讲习班20-09 part3殷赵霞 压缩图像及密文图像可逆信息隐藏研究进展](
+https://www.bilibili.com/video/BV1Qk4y1k7GY?from=search&seid=15466391295177723172)
+
+[差分隐私：原理、应用与展望](https://www.bilibili.com/video/BV1Tk4y117uA?from=search&seid=10380937147053242260)
 
 ## 信息安全数学基础
 
@@ -52,7 +59,9 @@ sticky: 1
 
 ## 网络对抗原理
 
-实验
+实验一
+
+实验二
 
 ## 无线通信网络安全   
 ## 人工智能

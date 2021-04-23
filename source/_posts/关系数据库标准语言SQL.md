@@ -1267,5 +1267,122 @@ MariaDB [S_T]> select student.sno,sname,cname,grade
 
 ## 嵌套查询
 
+在SQL语言中，一个`SELECT-FROM-WHERE`的语句称为一个`查询块`，将一个查询块嵌套在另一个查询块的`WHERE`子句或`HAVING`短语的条件中的查询，称为`嵌套查询`(nested query)。
 
+### 带有IN谓词的子查询
+
+```sql
+MariaDB [S_T]> select *
+    -> from student
+    -> where sdept in(
+    ->     select sdept
+    ->     from student
+    ->     where sname='李勇'
+    -> );
++-----------+--------+------+------+-------+
+| Sno       | Sname  | Ssex | Sage | Sdept |
++-----------+--------+------+------+-------+
+| 201215121 | 李勇   | 男   |   21 | CS    |
+| 201215122 | 刘晨   | 女   |   20 | CS    |
++-----------+--------+------+------+-------+
+2 rows in set (0.000 sec)
+```
+
+子查询的查询条件不依赖于父查询，称为`不相关子查询`。
+
+该🌰也可以通过`自身连接`实现：
+
+```sql
+MariaDB [S_T]> select s1.*
+    -> from student s1,student s2
+    -> where s1.sdept=s2.sdept and s2.sname='李勇';
++-----------+--------+------+------+-------+
+| Sno       | Sname  | Ssex | Sage | Sdept |
++-----------+--------+------+------+-------+
+| 201215121 | 李勇   | 男   |   21 | CS    |
+| 201215122 | 刘晨   | 女   |   20 | CS    |
++-----------+--------+------+------+-------+
+2 rows in set (0.000 sec)
+```
+
+### 带有比较运算符的子查询
+
+`IN`换做比较运算符，用于确切知道内层查询返回单值。
+
+### 带有ANY(SOME)或ALL谓词的子查询
+
+查询非计算机专业中比计算机专业任意一位学生年龄小的学生姓名和年龄：
+
+```sql
+MariaDB [S_T]> select sname,sage
+    -> from student
+    -> where sage < any(
+    ->     select sage
+    ->     from student
+    ->     where sdept = 'CS'
+    -> )
+    -> and sdept <> 'CS';
++--------+------+
+| sname  | sage |
++--------+------+
+| 王敏   |   19 |
+| 张立   |   20 |
++--------+------+
+2 rows in set (0.003 sec)
+```
+
+|      |  =   | <> 或 != |   <   |   <=   |   >   |   >=   |
+| :--: | :--: | :------: | :---: | :----: | :---: | :----: |
+| any  |  in  |          | < max | <= max | > min | >= min |
+| all  |      |  not in  | < min | <= min | > max | >= max |
+
+### 带有EXISTS谓词的子查询
+
+带有`exists`谓词的子查询`不返回`任何数据，只产生逻辑真值`true`或逻辑假值`false`。
+
+查询所有选修了1号课程的学生姓名：
+
+```sql
+MariaDB [S_T]> select sname
+    -> from student
+    -> where exists(
+    ->     select *
+    ->     from sc
+    ->     where sno=student.sno and cno='1'
+    -> );
++--------+
+| sname  |
++--------+
+| 李勇   |
++--------+
+1 row in set (0.003 sec)
+```
+
+使用存在量词`exists`后，若内层查询结果非空，则外层的`where`子句返回真值，否则返回假值。
+
+上例中子查询的查询条件依赖于外层父查询的某个属性值，是`相关子查询`。
+
+相关子查询大概可以理解为循环（？
+
+用`exist/not exist`可实现带全称量词的查询，比如查询
+
+选修了全部课程的学生姓名<=>没有一门课是ta不选的：
+
+```
+select sname
+from student
+where not exists(
+    select *
+    from course
+    where not exists(
+        select *
+        from sc
+        where sno=student.sno and cno=course.cno
+    )
+);
+```
+
+> 淦，是真的想不通，有没有好兄弟教教我or2
+
+## 集合查询
 
