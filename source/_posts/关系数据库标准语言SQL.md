@@ -1106,7 +1106,7 @@ MariaDB [S_T]> select * from student order by sdept asc,sage desc;
 
 注意⚠️：聚集函数只能用于`select`子句和`group by`中的`having`子句。
 
-#### GROUP BY 子句r
+#### GROUP BY 子句
 
 ```sql
 MariaDB [S_T]> select cno,count(sno) from sc group by cno;
