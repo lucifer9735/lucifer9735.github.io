@@ -912,3 +912,360 @@ MariaDB [S_T]> select distinct sno from sc;
 
 #### 查询满足条件的元组
 
+| 查询条件             | 谓词                                                |
+| -------------------- | --------------------------------------------------- |
+| 比较                 | =，>，<，>=，<=，!=，<>，!>，!<；not+上述比较运算符 |
+| 确定范围             | between and，not between and                        |
+| 确定集合             | in，not in                                          |
+| 字符匹配             | like，not like                                      |
+| 空值                 | is null，is not null                                |
+| 多重条件（逻辑运算） | and，or，not                                        |
+
+##### 比较
+
+```sql
+MariaDB [S_T]> select sname from student where sdept='CS';
++--------+
+| sname  |
++--------+
+| 李勇   |
+| 刘晨   |
++--------+
+2 rows in set (0.008 sec)
+
+MariaDB [S_T]> select sname,sage from student where sage<20;
++--------+------+
+| sname  | sage |
++--------+------+
+| 王敏   |   19 |
++--------+------+
+1 row in set (0.001 sec)
+
+MariaDB [S_T]> select distinct sno from sc where grade>=90;
++-----------+
+| sno       |
++-----------+
+| 201215121 |
+| 201215122 |
++-----------+
+2 rows in set (0.000 sec)
+```
+
+##### 确定范围
+
+```sql
+MariaDB [S_T]> select sname,sdept,sage from student where sage between 20 and 23;
++--------+-------+------+
+| sname  | sdept | sage |
++--------+-------+------+
+| 李勇   | CS    |   21 |
+| 刘晨   | CS    |   20 |
+| 张立   | IS    |   20 |
++--------+-------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [S_T]> select sname,sdept,sage from student where sage not between 20 and 23;
++--------+-------+------+
+| sname  | sdept | sage |
++--------+-------+------+
+| 王敏   | MA    |   19 |
++--------+-------+------+
+1 row in set (0.000 sec)
+```
+
+##### 确定集合
+
+```sql
+MariaDB [S_T]> select sname,ssex from student where sdept in ('CS','IS');
++--------+------+
+| sname  | ssex |
++--------+------+
+| 李勇   | 男   |
+| 刘晨   | 女   |
+| 张立   | 男   |
++--------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [S_T]> select sname,ssex from student where sdept not in ('CS','IS');
++--------+------+
+| sname  | ssex |
++--------+------+
+| 王敏   | 女   |
++--------+------+
+1 row in set (0.000 sec)
+```
+
+##### 字符匹配
+
+```sql
+[NOT] LIKE '<匹配串>' [ESCAPE '<换码字符>']
+```
+
+- `%`百分号代表任意长度的字符串
+- `_`下划线代表任意单个字符
+
+数据库字符集为`ASCII`时一个汉字需要两个`_`；当字符集为`GBK`时只需要一个`_`。
+
+```sql
+MariaDB [S_T]> select * from student where sno like '2012%';
++-----------+--------+------+------+-------+
+| Sno       | Sname  | Ssex | Sage | Sdept |
++-----------+--------+------+------+-------+
+| 201215121 | 李勇   | 男   |   21 | CS    |
+| 201215122 | 刘晨   | 女   |   20 | CS    |
+| 201215123 | 王敏   | 女   |   19 | MA    |
+| 201215125 | 张立   | 男   |   20 | IS    |
++-----------+--------+------+------+-------+
+4 rows in set (0.003 sec)
+
+MariaDB [S_T]> select sname,sno,ssex from student where sname like '刘%';
++--------+-----------+------+
+| sname  | sno       | ssex |
++--------+-----------+------+
+| 刘晨   | 201215122 | 女   |
++--------+-----------+------+
+1 row in set (0.000 sec)
+```
+
+`ESCAPE '\'`表示`'\'`为换码字符，匹配串中紧跟在`'\'`后面的字符`'_'`转义为普通字符。
+
+```sql
+select cno,ccredit from course where cname like 'DB\_Design' escape '\';
+select * form course where cname like 'DB\_%i__' escape '\';
+```
+
+##### 涉及空值
+
+```sql
+MariaDB [S_T]> select * from course where cpno is null;
++-----+--------------+------+---------+
+| Cno | Cname        | Cpno | Ccredit |
++-----+--------------+------+---------+
+| 2   | 数学         | NULL |       2 |
+| 6   | 数据处理     | NULL |       2 |
++-----+--------------+------+---------+
+2 rows in set (0.000 sec)
+```
+
+##### 多重条件查询
+
+`AND`的优先级高于`OR`，用户可以用括号改变优先级。
+
+`IN`谓词实际是多个`OR`运算符的缩写，后者查询效率更高。
+
+```sql
+MariaDB [S_T]> select sname,ssex from student where sdept='CS' or sdept='IS';
++--------+------+
+| sname  | ssex |
++--------+------+
+| 李勇   | 男   |
+| 刘晨   | 女   |
+| 张立   | 男   |
++--------+------+
+3 rows in set (0.000 sec)
+```
+
+#### ORDER BY 子句 对查询结果排序
+
+默认升序`ASC`。
+
+```sql
+MariaDB [S_T]> select sno,grade from sc where cno='3' order by grade;
++-----------+-------+
+| sno       | grade |
++-----------+-------+
+| 201215122 |    80 |
+| 201215121 |    88 |
++-----------+-------+
+2 rows in set (0.001 sec)
+
+MariaDB [S_T]> select sno,grade from sc where cno='3' order by grade desc;
++-----------+-------+
+| sno       | grade |
++-----------+-------+
+| 201215121 |    88 |
+| 201215122 |    80 |
++-----------+-------+
+2 rows in set (0.000 sec)
+
+MariaDB [S_T]> select * from student order by sdept asc,sage desc;
+```
+
+#### 聚集函数
+
+| 聚集函数                      | 函数功能                                 |
+| ----------------------------- | ---------------------------------------- |
+| count(*)                      | 统计元组个数                             |
+| count([distinct\|all] <列名>) | 统计一列中值的个数                       |
+| sum([distinct\|all] <列名>)   | 统计一列中值的总和（此列必须是数值型）   |
+| avg([distinct\|all] <列名>)   | 统计一列中值的平均值（此列必须是数值型） |
+| max([distinct\|all] <列名>)   | 统计一列中值的最大值                     |
+| min([distinct\|all] <列名>)   | 统计一列中值的最小值                     |
+
+当聚集函数遇到空值时，除了`count(*)`外，都跳过空值而只处理非空值。
+
+注意⚠️：聚集函数只能用于`select`子句和`group by`中的`having`子句。
+
+#### GROUP BY 子句r
+
+```sql
+MariaDB [S_T]> select cno,count(sno) from sc group by cno;
++-----+------------+
+| cno | count(sno) |
++-----+------------+
+| 1   |          1 |
+| 2   |          2 |
+| 3   |          2 |
++-----+------------+
+3 rows in set (0.002 sec)
+```
+
+```sql
+MariaDB [S_T]> select * from sc;
++-----------+-----+-------+
+| Sno       | Cno | Grade |
++-----------+-----+-------+
+| 201215121 | 1   |    92 |
+| 201215121 | 2   |    85 |
+| 201215121 | 3   |    88 |
+| 201215122 | 2   |    90 |
+| 201215122 | 3   |    80 |
++-----------+-----+-------+
+5 rows in set (0.000 sec)
+
+MariaDB [S_T]> select sno from sc group by sno having count(*)>2;
++-----------+
+| sno       |
++-----------+
+| 201215121 |
++-----------+
+1 row in set (0.000 sec)
+
+MariaDB [S_T]> select cno from sc group by cno having count(*)=1;
++-----+
+| cno |
++-----+
+| 1   |
++-----+
+1 row in set (0.000 sec)
+```
+
+`where`子句作用于基本表或者视图，从中选择满足条件的元组；
+
+`having`短语用于组，从中选择满足条件的组。
+
+## 连接查询
+
+若一个查询同时涉及两个以上的表，则称之为连接查询，是关系数据库中最主要的查询。
+
+### 等值与非等值连接查询
+
+```sql
+MariaDB [S_T]> select student.*,sc.* from student,sc where student.sno=sc.sno;
++-----------+--------+------+------+-------+-----------+-----+-------+
+| Sno       | Sname  | Ssex | Sage | Sdept | Sno       | Cno | Grade |
++-----------+--------+------+------+-------+-----------+-----+-------+
+| 201215121 | 李勇   | 男   |   21 | CS    | 201215121 | 1   |    92 |
+| 201215121 | 李勇   | 男   |   21 | CS    | 201215121 | 2   |    85 |
+| 201215121 | 李勇   | 男   |   21 | CS    | 201215121 | 3   |    88 |
+| 201215122 | 刘晨   | 女   |   20 | CS    | 201215122 | 2   |    90 |
+| 201215122 | 刘晨   | 女   |   20 | CS    | 201215122 | 3   |    80 |
++-----------+--------+------+------+-------+-----------+-----+-------+
+5 rows in set (0.001 sec)
+```
+
+若在等值连接中把目标列中重复的属性列去掉，则为`自然连接`：
+
+```sql
+MariaDB [S_T]> select student.sno,sname,ssex,sage,sdept,cno,grade from student,sc where student.sno=sc.sno;
++-----------+--------+------+------+-------+-----+-------+
+| sno       | sname  | ssex | sage | sdept | cno | grade |
++-----------+--------+------+------+-------+-----+-------+
+| 201215121 | 李勇   | 男   |   21 | CS    | 1   |    92 |
+| 201215121 | 李勇   | 男   |   21 | CS    | 2   |    85 |
+| 201215121 | 李勇   | 男   |   21 | CS    | 3   |    88 |
+| 201215122 | 刘晨   | 女   |   20 | CS    | 2   |    90 |
+| 201215122 | 刘晨   | 女   |   20 | CS    | 3   |    80 |
++-----------+--------+------+------+-------+-----+-------+
+5 rows in set (0.000 sec)
+```
+
+### 自身连接
+
+查询`SC`中课程间接先修课，需要通过取别名的方式：
+
+```sql
+MariaDB [S_T]> select first.cno,second.cpno
+    -> from course first,course second
+    -> where first.cpno=second.cno
+    -> and second.cpno is not null
+    -> order by first.cno;
++-----+------+
+| cno | cpno |
++-----+------+
+| 1   | 7    |
+| 3   | 5    |
+| 5   | 6    |
++-----+------+
+3 rows in set (0.001 sec)
+```
+
+### 外连接
+
+```sql
+MariaDB [S_T]> select student.sno,sname,ssex,sage,sdept,cno,grade
+    -> from student left outer join sc on (student.sno=sc.sno);
++-----------+--------+------+------+-------+------+-------+
+| sno       | sname  | ssex | sage | sdept | cno  | grade |
++-----------+--------+------+------+-------+------+-------+
+| 201215121 | 李勇   | 男   |   21 | CS    | 1    |    92 |
+| 201215121 | 李勇   | 男   |   21 | CS    | 2    |    85 |
+| 201215121 | 李勇   | 男   |   21 | CS    | 3    |    88 |
+| 201215122 | 刘晨   | 女   |   20 | CS    | 2    |    90 |
+| 201215122 | 刘晨   | 女   |   20 | CS    | 3    |    80 |
+| 201215123 | 王敏   | 女   |   19 | MA    | NULL |  NULL |
+| 201215125 | 张立   | 男   |   20 | IS    | NULL |  NULL |
++-----------+--------+------+------+-------+------+-------+
+7 rows in set (0.000 sec)
+```
+
+利用`using`：
+
+```sql
+MariaDB [S_T]> select * from student left outer join sc using (sno);
++-----------+--------+------+------+-------+------+-------+
+| Sno       | Sname  | Ssex | Sage | Sdept | Cno  | Grade |
++-----------+--------+------+------+-------+------+-------+
+| 201215121 | 李勇   | 男   |   21 | CS    | 1    |    92 |
+| 201215121 | 李勇   | 男   |   21 | CS    | 2    |    85 |
+| 201215121 | 李勇   | 男   |   21 | CS    | 3    |    88 |
+| 201215122 | 刘晨   | 女   |   20 | CS    | 2    |    90 |
+| 201215122 | 刘晨   | 女   |   20 | CS    | 3    |    80 |
+| 201215123 | 王敏   | 女   |   19 | MA    | NULL |  NULL |
+| 201215125 | 张立   | 男   |   20 | IS    | NULL |  NULL |
++-----------+--------+------+------+-------+------+-------+
+7 rows in set (0.000 sec)
+```
+
+### 多表连接
+
+```sql
+MariaDB [S_T]> select student.sno,sname,cname,grade
+    -> from student,sc,course
+    -> where student.sno=sc.sno and sc.cno=course.cno;
++-----------+--------+--------------+-------+
+| sno       | sname  | cname        | grade |
++-----------+--------+--------------+-------+
+| 201215122 | 刘晨   | 数学         |    90 |
+| 201215122 | 刘晨   | 信息系统     |    80 |
+| 201215121 | 李勇   | 数据库       |    92 |
+| 201215121 | 李勇   | 数学         |    85 |
+| 201215121 | 李勇   | 信息系统     |    88 |
++-----------+--------+--------------+-------+
+5 rows in set (0.000 sec)
+```
+
+## 嵌套查询
+
+
+
