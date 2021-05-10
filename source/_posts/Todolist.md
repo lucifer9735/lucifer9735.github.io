@@ -5,7 +5,7 @@ abbrlink: 243b948d
 date: 2021-04-19 12:57:58
 tags:
 categories:
-cover:
+cover: https://img.foopi.top/cover/miss.webp
 katex:
 sticky: 1
 ---
@@ -30,9 +30,9 @@ sticky: 1
 
 ## 信号与系统
 
-期中考试 4-27
+~~期中考试 4-27~~
 
-第五次作业 4-25
+~~第五次作业 4-25~~
 
 第二次实验 5-3
 
@@ -55,7 +55,7 @@ https://www.bilibili.com/video/BV1Qk4y1k7GY?from=search&seid=1546639129517772317
 
 ## 信息论基础
 
-交作业 5-5
+~~交作业 5-8~~
 
 ## 网络对抗原理
 
@@ -70,7 +70,7 @@ https://www.bilibili.com/video/BV1Qk4y1k7GY?from=search&seid=1546639129517772317
 
 漏洞分析报告
 
-学术论文阅读
+~~[学术论文阅读](https://foopi.top/posts/28034c81/)~~
 
 python实验
 
@@ -84,6 +84,8 @@ ABY SPDZ 混合安全计算工具 分析其中三个函数 写报告
 
 ## 房间卫生
 
+两周打扫一次
+
 ## 健身
 
 运动解刨学
@@ -92,9 +94,10 @@ ABY SPDZ 混合安全计算工具 分析其中三个函数 写报告
 
 ## myblog
 
-- KaTex支持
+- KaTeX支持
 - 302转发404
 - [截图压缩上传](https://maojun.xyz/build-your-own-image-server-with-backblaze-b2.html)
+- 可视化ddl 类似 planner pro
 
 ## 开源镜像维护
 

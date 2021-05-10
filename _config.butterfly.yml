@@ -72,7 +72,7 @@ mathjax:
 
 # KaTeX
 katex:
-  enable: false
+  enable: true
   per_page: false
   hide_scrollbar: true
 
@@ -461,26 +461,7 @@ google_adsense:
 
 # Verification (站長驗證)
 # --------------------------------------
-
-# Google Webmaster tools verification setting
-# See: https://www.google.com/webmasters/
-google_site_verification:
-
-# Bing Webmaster tools verification setting
-# See: https://www.bing.com/webmaster/
-bing_site_verification:
-
-# Baidu Webmaster tools verification setting
-# See: https://ziyuan.baidu.com/site/
-baidu_site_verification:
-
-# 360 Webmaster tools verification setting
-# see http://zhanzhang.so.com/
-qihu_site_verification:
-
-# Yandex Webmaster tools verification setting
-# see https://webmaster.yandex.com/
-yandex_site_verification:
+site_verification:
 
 # Beautify/Effect (美化/效果)
 # --------------------------------------
@@ -836,7 +817,9 @@ pangu:
 # https://github.com/verlok/lazyload
 lazyload:
   enable: true
-  post: /img/loading.gif
+  field: site #site/post
+  placeholder: https://img.foopi.top/img/loading.gif
+  blur: false
 
 # PWA
 # See https://github.com/JLHwung/hexo-offline
