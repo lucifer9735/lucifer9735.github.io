@@ -16,7 +16,7 @@ sticky: 1
 
 ## 微机原理与系统设计
 
-微机系统综合实验
+微机系统综合实验 7-6
 
 ## 数据库原理
 
@@ -34,7 +34,7 @@ sticky: 1
 
 ~~第五次作业 4-25~~
 
-第二次实验 5-3
+~~[第二次实验](https://foopi.top/posts/ffa66aa4/) 5-10~~
 
 ## 网络与协议安全
 
@@ -55,7 +55,7 @@ https://www.bilibili.com/video/BV1Qk4y1k7GY?from=search&seid=1546639129517772317
 
 ## 信息论基础
 
-~~交作业 5-8~~
+~~交作业 5-12~~
 
 ## 网络对抗原理
 
@@ -63,8 +63,13 @@ https://www.bilibili.com/video/BV1Qk4y1k7GY?from=search&seid=1546639129517772317
 
 实验二
 
-## 无线通信网络安全   
+## 无线通信网络安全
+
+无线网络安全最新进展调研报告 期末考试前
+
 ## 人工智能
+
+手写数字识别实验
 
 ## 密码学进展
 
@@ -94,7 +99,7 @@ ABY SPDZ 混合安全计算工具 分析其中三个函数 写报告
 
 ## myblog
 
-- KaTeX支持
+- ~~KaTeX支持~~
 - 302转发404
 - [截图压缩上传](https://maojun.xyz/build-your-own-image-server-with-backblaze-b2.html)
 - 可视化ddl 类似 planner pro
