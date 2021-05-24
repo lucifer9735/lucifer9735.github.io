@@ -8,6 +8,8 @@ abbrlink: 53a8bc96
 date: 2021-04-13 21:07:40
 ---
 
+[Explanation of Pi by Mr.Finch](https://www.youtube.com/watch?v=fXTRcsxG7IQ)
+
 Let me show you...
 
 Pi
