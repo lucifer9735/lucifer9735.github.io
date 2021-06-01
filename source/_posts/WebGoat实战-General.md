@@ -1,5 +1,5 @@
 ---
-title: WebGoat实战
+title: 'WebGoat实战: General'
 tags: WebGoat
 categories:
  - 想要毕业
@@ -447,8 +447,3 @@ Leaving passwords in docker images is not so secure
 Quantum computers are here and getting more power in available qubits each year. Quantum computers are and will be capable of decrypting information that was encrypted with algorithms that were thought to be safe. For some years now, a lot of encrypted communicatation using quantum vulnerable cryptoraphy is being recorded. This information will be decrypted when the quantum computers are powerful enough. Even tough the information may be old, it still could contain valuable information that can be misused. Besides the fact that some private information will be known to parties it was not intended for.
 
 Mathematics has answers for the post quantum era. New cryptography is already available and should be used NOW in order to minimize threads. You can read more on this on Wikipedia [Post quatum on Wikipedia](https://en.wikipedia.org/wiki/Post-quantum_cryptography)
-
-## Injection
-
-### SQL Injection (intro)
-
