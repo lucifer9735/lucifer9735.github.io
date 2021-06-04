@@ -324,3 +324,136 @@ while True:
 
 ## SQL Injection (mitigation)
 
+### Immutable Queries
+
+These are the best defense against SQL injection.  They either do not have data that could get interpreted or they treat the data as a single entity that is bound to a column without interpretation.
+
+#### Static Queries
+
+```
+SELECT * FROM products;
+SELECT * FROM users WHERE user = "'" + session.getAttribute("UserID") + "'";
+```
+
+#### Parameterized Queries
+
+```
+String query = "SELECT * FROM users WHERE last_name = ?";
+PreparedStatement statement = connection.prepareStatement(query);
+statement.setString(1, accountName);
+ResultSet results = statement.executeQuery();
+```
+
+##### Parameterized Queries - Java Snippet
+
+```
+public static bool isUsernameValid(string username) {
+    RegEx r = new Regex("^[A-Za-z0-9]{16}$");
+    return r.isMatch(username);
+}
+
+// java.sql.Connection conn is set elsewhere for brevity.
+PreparedStatement ps = null;
+RecordSet rs = null;
+try {
+    pUserName = request.getParameter("UserName");
+    if ( isUsernameValid (pUsername) ) {
+        ps = conn.prepareStatement("SELECT * FROM user_table
+                                   WHERE username = ? ");
+        ps.setString(1, pUsername);
+        rs = ps.execute();
+        if ( rs.next() ) {
+            // do the work of making the user record active in some way
+        }
+    } else { // handle invalid input }
+}
+catch (...) { // handle all exceptions ... }
+```
+
+##### Parameterized Queries - Java Example
+
+```
+public static String loadAccount() {
+  // Parser returns only valid string data
+  String accountID = getParser().getStringParameter(ACCT_ID, "");
+  String data = null;
+  String query = "SELECT first_name, last_name, acct_id, balance FROM user_data WHERE acct_id = ?";
+  try (Connection connection = null;
+       PreparedStatement statement = connection.prepareStatement(query)) {
+     statement.setString(1, accountID);
+     ResultSet results = statement.executeQuery();
+     if (results != null && results.first()) {
+       results.last(); // Only one record should be returned for this query
+       if (results.getRow() <= 2) {
+         data = processAccount(results);
+       } else {
+         // Handle the error - Database integrity issue
+       }
+     } else {
+       // Handle the error - no records found }
+     }
+  } catch (SQLException sqle) {
+    // Log and handle the SQL Exception }
+  }
+  return data;
+}
+```
+
+##### Parameterized Queries - .NET
+
+```
+public static bool isUsernameValid(string username) {
+	RegEx r = new Regex("^[A-Za-z0-9]{16}$");
+	Return r.isMatch(username);
+}
+
+// SqlConnection conn is set and opened elsewhere for brevity.
+try {
+	string selectString = "SELECT * FROM user_table WHERE username = @userID";
+	SqlCommand cmd = new SqlCommand( selectString, conn );
+	if ( isUsernameValid( uid ) ) {
+		cmd.Parameters.Add( "@userID", SqlDbType.VarChar, 16 ).Value = uid;
+		SqlDataReader myReader = cmd.ExecuteReader();
+		if ( myReader ) {
+			// make the user record active in some way.
+			myReader.Close();
+		}
+	} else { // handle invalid input }
+}
+catch (Exception e) { // Handle all exceptions... }
+```
+
+#### Stored Procedures
+
+Only if stored procedure does not generate dynamic SQL
+
+##### Safe Stored Procedure (Microsoft SQL Server)
+
+```
+CREATE PROCEDURE ListCustomers(@Country nvarchar(30))
+AS
+SELECT city, COUNT(*)
+FROM customers
+WHERE country LIKE @Country GROUP BY city
+
+EXEC ListCustomers ‘USA’
+```
+
+##### Injectable Stored Procedure (Microsoft SQL Server)
+
+```
+CREATE PROEDURE getUser(@lastName nvarchar(25))
+AS
+declare @sql nvarchar(255)
+set @sql = 'SELECT * FROM users WHERE
+            lastname = + @LastName + '
+exec sp_executesql @sql
+```
+
+有一个比较头疼的问题，我当初java学得一般，目前已经忘得差不多了，看看代码尚可，写就。。。建议参考之前的两篇文章or2
+
+啊他们写得真好啊.jpg
+
+我的webgoat系列只是复制粘贴lesson内容罢了，只为了以后想看时不用打开虚拟机docker，可是又有什么意义呢？像极了浪费时间。
+
+还有二十天期末考试，有些焦虑。sql注入部分结束后先准备考试吧w
