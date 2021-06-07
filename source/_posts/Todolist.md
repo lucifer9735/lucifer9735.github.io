@@ -22,7 +22,7 @@ sticky: 1
 
 ~~[上机测试](https://foopi.top/posts/122cff9f/) 4-23~~ 优秀
 
-大作业报告 6-4
+~~大作业报告 6-6~~
 
 ## 操作系统
 
@@ -32,13 +32,7 @@ sticky: 1
 
 ~~期中考试 4-27~~
 
-第六次作业 6-6
-
-~~[第二次实验](https://foopi.top/posts/ffa66aa4/) 5-10~~
-
-第三次实验 6-6
-
-第四次实验 6-15
+~~[信号与系统实验](https://foopi.top/tags/matlab/)~~
 
 ## 网络与协议安全
 
@@ -59,7 +53,7 @@ https://www.bilibili.com/video/BV1Qk4y1k7GY?from=search&seid=1546639129517772317
 
 ## 信息论基础
 
-~~交作业 5-12~~
+[网课自学](https://www.bilibili.com/video/BV1kE411E7HX)
 
 ## 网络对抗原理
 
@@ -71,7 +65,7 @@ https://www.bilibili.com/video/BV1Qk4y1k7GY?from=search&seid=1546639129517772317
 
 ## 人工智能
 
-手写数字识别实验
+~~[手写数字识别实验](https://foopi.top/posts/293e401e/)~~
 
 ## 密码学进展
 
@@ -79,7 +73,7 @@ https://www.bilibili.com/video/BV1Qk4y1k7GY?from=search&seid=1546639129517772317
 
 ~~[学术论文阅读](https://foopi.top/posts/28034c81/)~~
 
-python实验
+~~[python实验](https://foopi.top/posts/314e2427/)~~
 
 ## 安全计算
 

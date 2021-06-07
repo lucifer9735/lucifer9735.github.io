@@ -56,12 +56,13 @@ katex:
 
 ### 实验总结及心得
 
+代码详见 **[tensorflow_mnist](https://github.com/lucifer9735/tensorflow_mnist)**
 
+[人工智能实验报告](https://img.foopi.top/pdf/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf)
 
 ### 参考文章
 
 [基于神经网络的MNIST手写数字识别](https://blog.csdn.net/weixin_40579705/article/details/107654176)
 
-[相关参考代码](https://github.com/naturliche/data_analysis/blob/master/test2.py)
-
 [一文看尽全卷积网络FCN设计架构以及设计思想](https://blog.csdn.net/qq_27825451/article/details/89355174)
+
