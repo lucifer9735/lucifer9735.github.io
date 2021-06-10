@@ -5,12 +5,12 @@ date: 2021-05-14 13:51:36
 tags: python
 categories:
   - [想要毕业, 密码学进展]
-description:
-cover: 实验报告
+description: 实验报告
+cover:
 katex:
 ---
 
-代码详见[lucifer9735](https://github.com/lucifer9735)/**[vigenere](https://github.com/lucifer9735/vigenere)**
+代码详见**[vigenere](https://github.com/lucifer9735/vigenere)**
 
 >
 

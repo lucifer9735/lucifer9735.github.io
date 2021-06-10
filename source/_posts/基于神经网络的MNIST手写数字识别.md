@@ -11,6 +11,10 @@ cover:
 katex:
 ---
 
+代码详见 **[tensorflow_mnist](https://github.com/lucifer9735/tensorflow_mnist)**
+
+>
+
 ### 实验目的
 
 - 掌握运用神经网络模型解决有监督学习问题
@@ -55,8 +59,6 @@ katex:
 - k折交叉验证法不同k值对结果的影响和分析 （10分）
 
 ### 实验总结及心得
-
-代码详见 **[tensorflow_mnist](https://github.com/lucifer9735/tensorflow_mnist)**
 
 [人工智能实验报告](https://img.foopi.top/pdf/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.pdf)
 
