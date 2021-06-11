@@ -10,7 +10,7 @@ cover:
 katex:
 ---
 
-代码详见**[vigenere](https://github.com/lucifer9735/vigenere)**
+代码详见 [**vigenere**](https://github.com/lucifer9735/vigenere)
 
 >
 
