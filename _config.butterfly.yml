@@ -170,8 +170,8 @@ wordcount:
 # 3: auto_excerpt (default)
 # false: do not show the article introduction
 index_post_content:
-  method: 2
-  length: 500 # if you set method to 2 or 3, the length need to config
+  method: 1
+  length: 300 # if you set method to 2 or 3, the length need to config
 
 # Post
 # --------------------------------------
@@ -648,8 +648,8 @@ aside:
     content: 欢迎来访，喜欢请收藏w
   card_recent_post:
     enable: true
-    limit: 5 # if set 0 will show all
-    sort: date # date or updated
+    limit: 7 # if set 0 will show all
+    sort: updated # date or updated
     sort_order: # Don't modify the setting unless you know how it works
   card_categories:
     enable: true

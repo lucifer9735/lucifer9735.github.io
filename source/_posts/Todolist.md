@@ -36,7 +36,7 @@ sticky: 1
 
 ## 网络与协议安全
 
-[计算机与网络安全综合实验](https://foopi.top/categories/%E6%83%B3%E8%A6%81%E6%AF%95%E4%B8%9A/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%8D%8F%E8%AE%AE%E5%AE%89%E5%85%A8/)
+~~[计算机与网络安全综合实验](https://foopi.top/categories/%E6%83%B3%E8%A6%81%E6%AF%95%E4%B8%9A/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%8D%8F%E8%AE%AE%E5%AE%89%E5%85%A8/)~~
 
 ## 信息与内容安全
 

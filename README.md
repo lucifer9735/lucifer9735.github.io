@@ -1,1 +1,1 @@
-myblog
+https://foopi.top
