@@ -10,99 +10,80 @@ katex:
 sticky: 1
 ---
 
-# 课内
+## 课内
 
-[2021春季学期课程](https://foopi.top/posts/cc41c62f/)
+[2021秋季学期课程](https://foopi.top/posts/f83bfa4f/)
 
-## 微机原理与系统设计
+### 网络空间安全导论
 
-微机系统综合实验 7-6
+### 电路分析基础
 
-## 数据库原理
+### 计算机组成原理
 
-~~[上机测试](https://foopi.top/posts/122cff9f/) 4-23~~ 优秀
+第三章作业 11-13
 
-~~大作业报告 6-6~~
+MIPS实验
 
-## 操作系统
+第一次上机 11-19
 
-操作系统综合实验
+### 现代通信原理
 
-## 信号与系统
+### 计算机网络原理
 
-~~期中考试 4-27~~
+ppt 作业
 
-~~[信号与系统实验](https://foopi.top/tags/matlab/)~~
+### 现代密码学
 
-## 网络与协议安全
+实验网课
 
-~~[计算机与网络安全综合实验](https://foopi.top/categories/%E6%83%B3%E8%A6%81%E6%AF%95%E4%B8%9A/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%8D%8F%E8%AE%AE%E5%AE%89%E5%85%A8/)~~
+### 复变函数
 
-## 信息与内容安全
+### 数字信号处理
 
-[机器学习 李宏毅](https://www.bilibili.com/video/BV1Wv411h7kN) RNN
+第三章作业 11-14
 
-[CSIG讲习班20-09 part3殷赵霞 压缩图像及密文图像可逆信息隐藏研究进展](
-https://www.bilibili.com/video/BV1Qk4y1k7GY?from=search&seid=15466391295177723172)
+### 编译原理
 
-[差分隐私：原理、应用与展望](https://www.bilibili.com/video/BV1Tk4y117uA?from=search&seid=10380937147053242260)
+大作业
 
-## 信息安全数学基础
+### 网络程序设计
 
-补所有作业
+大作业 考试前一周
 
-## 信息论基础
+### 网络协议分析与设计
 
-[网课自学](https://www.bilibili.com/video/BV1kE411E7HX)
+### 网络管理
 
-## 网络对抗原理
+RFC3535 10-31
 
-实验1234 6-3
+RFC6214 12-30
 
-## 无线通信网络安全
+RFC7950 11-26
 
-无线网络安全最新进展调研报告 6-23
+RFC8040 11-30
 
-## 人工智能
+### 软件逆向工程
 
-~~[手写数字识别实验](https://foopi.top/posts/293e401e/)~~
+上机作业
 
-## 密码学进展
+### FPGA基础
 
-漏洞分析报告
+补习课程
 
-~~[学术论文阅读](https://foopi.top/posts/28034c81/)~~
+上机报告 11-30
 
-~~[python实验](https://foopi.top/posts/314e2427/)~~
+### 机器学习
 
-## 安全计算
+阅读论文尝试复现实验
 
-ndss-2015
+### 虚拟化与云计算技术
 
-ABY SPDZ 混合安全计算工具 分析其中三个函数 写报告
+补录播
 
-# 课外
+### 创业基础
 
-## 房间卫生
+网课 大作业11-01三天内
 
-两周打扫一次
+## 课外
 
-## 健身
-
-运动解刨学
-
-运动营养学
-
-## myblog
-
-- ~~KaTeX支持~~
-- 302转发404
-- [截图压缩上传](https://maojun.xyz/build-your-own-image-server-with-backblaze-b2.html)
-- 可视化ddl 类似 planner pro
-
-## 开源镜像维护
-
-## 辉光钟
-
-[来做 Divergence Meter](https://debupt.github.io/2018/02/02/%E6%9D%A5%E5%81%9A-Divergence-Meter-%E8%BE%89%E5%85%89%E7%AE%A1%E6%97%B6%E9%92%9F/)
-
+准备毕设
