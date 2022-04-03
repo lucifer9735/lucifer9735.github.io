@@ -1,9 +1,10 @@
 ---
 title: 记录在Parallels Desktop安装Arch Linux
-date: 2021-12-17 10:37:27
 tags: ArchLinux
-categories:
 description: archlinux00
+abbrlink: 97494af9
+date: 2021-12-17 10:37:27
+categories:
 cover:
 katex:
 ---
